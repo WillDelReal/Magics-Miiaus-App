@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#a8672f">
+
+    <title>Miiaus Mágicos | Mi Miau</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/nubes.css">
+    <link rel="stylesheet" href="css/miaus.css">
+    <link rel="stylesheet" href="css/musica.css">
+
+    <!-- Scripts (el orden importa; defer los ejecuta después de armar la página) -->
+    <script src="js/comun.js" defer></script>
+    <script src="js/nubes.js" defer></script>
+    <script src="js/musica.js" defer></script>
+    <script src="js/miaus.js" defer></script>
+</head>
+
+<body>
+
+    <main class="canvas" id="canvas">
+
+        <!-- BOTÓN VOLVER -->
+        <button class="btn-volver" id="btnVolver" type="button" aria-label="Volver a interacción">
+            <img src="img/icon-volver.png" alt="" draggable="false"
+                 onerror="this.parentNode.textContent='‹'">
+        </button>
+
+        <!-- ENCABEZADO -->
+        <h1 class="miaus-titulo">¡MI MIAU!</h1>
+        <p class="miaus-subtitulo">Una pequeña ficha de un gran compañero</p>
+
+        <!-- TARJETA -->
+        <div class="card-area">
+
+            <div class="miaus-card" id="miausCard" role="button" tabindex="0"
+                 aria-label="Tarjeta de presentación de tu gato. Toca para ver sus estadísticas."
+                 aria-pressed="false">
+
+                <div class="card-inner" id="cardInner">
+
+                    <!-- CARA FRONTAL -->
+                    <section class="card-face card-front" id="cardFront"
+                             aria-label="Cara frontal: presentación de tu gato">
+
+                        <span class="corner-star star-one" aria-hidden="true">✦</span>
+                        <span class="corner-star star-two" aria-hidden="true">✧</span>
+                        <span class="corner-star star-three" aria-hidden="true">✧</span>
+                        <span class="corner-star star-four" aria-hidden="true">✦</span>
+
+                        <div class="portrait-window">
+                            <div class="portrait-halo" id="portraitHalo"></div>
+                            <img class="cat-portrait" id="catPortrait" src="" alt="" draggable="false">
+                        </div>
+
+                        <p class="cat-name" id="catName">Mi gato</p>
+                        <p class="cat-type" id="catType">Gato mágico</p>
+                        <p class="cat-human" id="catHuman">Mi humano/a: ¡Tú!</p>
+                        <p class="cat-personality" id="catPersonality">Dulce y soñador</p>
+
+                        <p class="flip-hint">✦ Toca la tarjeta para girarla ✦</p>
+                    </section>
+
+                    <!-- CARA TRASERA -->
+                    <section class="card-face card-back" id="cardBack"
+                             aria-label="Cara trasera: estadísticas de tu gato" aria-hidden="true">
+
+                        <span class="corner-star star-one" aria-hidden="true">✦</span>
+                        <span class="corner-star star-two" aria-hidden="true">✧</span>
+                        <span class="corner-star star-three" aria-hidden="true">✧</span>
+                        <span class="corner-star star-four" aria-hidden="true">✦</span>
+
+                        <p class="stats-title">MI PEQUEÑO UNIVERSO</p>
+                        <p class="stats-subtitle">Un poquito de nuestra historia</p>
+
+                        <div class="stats-list">
+
+                            <div class="stat-row">
+                                <span class="stat-icon" aria-hidden="true">★</span>
+                                <div class="stat-content">
+                                    <span class="stat-label">Estrellas</span>
+                                    <strong class="stat-value" id="catStars">0</strong>
+                                </div>
+                            </div>
+
+                            <div class="stat-row">
+                                <span class="stat-icon" aria-hidden="true">📅</span>
+                                <div class="stat-content">
+                                    <span class="stat-label">Días juntos</span>
+                                    <strong class="stat-value" id="catDays">1</strong>
+                                </div>
+                            </div>
+
+                            <div class="stat-row favorite-row">
+                                <span class="stat-icon" aria-hidden="true">🍓</span>
+                                <div class="stat-content">
+                                    <span class="stat-label">Comida favorita</span>
+                                    <div class="favorite-food">
+                                        <img id="favoriteImage" src="" alt="" draggable="false">
+                                        <strong id="favoriteName">Fresa</strong>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="stat-row hunger-row">
+                                <span class="stat-icon" aria-hidden="true">🐾</span>
+                                <div class="stat-content">
+                                    <span class="stat-label">Pancita</span>
+                                    <div class="hunger-track" role="progressbar" id="hungerProgress"
+                                         aria-label="Nivel de pancita"
+                                         aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                        <span class="hunger-fill" id="hungerFill"></span>
+                                    </div>
+                                    <span class="hunger-value" id="hungerValue">0%</span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <p class="flip-hint back-hint">✦ Toca para volver a su presentación ✦</p>
+                    </section>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- COMPARTIR -->
+        <button class="btn-pill btn-share" id="btnShare" type="button">
+            <span aria-hidden="true">✦</span> Compartir <span aria-hidden="true">✦</span>
+        </button>
+
+        <!-- ANUNCIO ACCESIBLE -->
+        <p class="face-announcement" id="faceAnnouncement" aria-live="polite">Cara frontal</p>
+
+        <!-- MÚSICA DE FONDO (dentro del lienzo, para que quede dentro del "celular") -->
+        <audio id="backgroundMusic" src="audio/musica-fondo.mp3" loop preload="auto"></audio>
+
+        <button type="button" id="musicButton" class="music-button"
+                aria-label="Activar música" aria-pressed="false">
+            <span id="musicIcon" aria-hidden="true">♫</span>
+        </button>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#a8672f">
+    <title>Miiaus Mágicos | Interacción</title>
+
+    <!-- Fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/interaccion.css">
+    <link rel="stylesheet" href="css/nubes.css">
+
+    <!-- Scripts: nubes primero -->
+    <script src="js/nubes.js" defer></script>
+    <script src="js/interaccion.js" defer></script>
+    <link rel="stylesheet" href="css/musica.css">
+</head>
+
+<body>
+
+    <main class="canvas" id="canvas">
+
+        <!-- Letrero con el nombre -->
+        <section class="name-sign" aria-label="Nombre de tu gato">
+            <img
+                src="img/letrero.png"
+                alt=""
+                draggable="false"
+                class="sign-image"
+            >
+
+            <span class="cat-name" id="catName">Mi gato</span>
+        </section>
+
+        <!-- Ajustes -->
+        <button
+            type="button"
+            class="settings-button"
+            id="settingsButton"
+            aria-label="Ajustes"
+        >
+            <img
+                src="img/icono-ajustes.png"
+                alt=""
+                draggable="false"
+            >
+        </button>
+
+        <!-- Gato protagonista -->
+        <button
+            type="button"
+            class="cat-button"
+            id="catButton"
+            aria-label="Tu gato. Tócalo para jugar con él"
+        >
+            <img
+                src="img/gato-hada.png"
+                alt="Tu gato"
+                id="catImage"
+                draggable="false"
+            >
+        </button>
+
+        <!-- Burbuja de diálogo -->
+        <div
+            class="speech-bubble"
+            id="speechBubble"
+            aria-hidden="true"
+        >
+            <span id="speechEmoji">😂</span>
+        </div>
+
+        <!-- Partículas -->
+        <div
+            class="particles-container"
+            id="particlesContainer"
+            aria-hidden="true"
+        ></div>
+
+        <!-- Aviso -->
+        <div
+            class="notice"
+            id="notice"
+            role="status"
+            aria-live="polite"
+        >
+            Próximamente ✨
+        </div>
+
+        <!-- Navegación inferior -->
+        <nav class="bottom-nav" aria-label="Menú principal">
+
+            <button
+                type="button"
+                class="nav-button"
+                data-destination="miaus"
+                aria-label="Miaus"
+            >
+                <img
+                    src="img/icono-miaus.png"
+                    alt=""
+                    draggable="false"
+                >
+                <span>Miaus</span>
+            </button>
+
+            <button
+                type="button"
+                class="nav-button"
+                data-destination="juegos"
+                aria-label="Juegos"
+            >
+                <img
+                    src="img/icono-juegos.png"
+                    alt=""
+                    draggable="false"
+                >
+                <span>Juegos</span>
+            </button>
+
+            <button
+                type="button"
+                class="nav-button"
+                data-destination="comida"
+                aria-label="Comida"
+            >
+                <img
+                    src="img/icono-comida.png"
+                    alt=""
+                    draggable="false"
+                >
+                <span>Comida</span>
+            </button>
+
+        </nav>
+
+        <!-- Anuncios accesibles para lectores de pantalla -->
+        <span
+            class="visually-hidden"
+            id="reactionAnnouncement"
+            aria-live="polite"
+        ></span>
+
+    </main>
+
+<!-- MÚSICA DE FONDO -->
+<audio
+    id="backgroundMusic"
+    src="audio/musica-fondo.mp3"
+    loop
+    preload="auto"
+></audio>
+
+<button
+    type="button"
+    id="musicButton"
+    class="music-button"
+    aria-label="Activar música"
+    aria-pressed="false"
+>
+    <span id="musicIcon" aria-hidden="true">♫</span>
+</button>
+
+<script src="js/musica.js"></script>
+
+</body>
+</html>

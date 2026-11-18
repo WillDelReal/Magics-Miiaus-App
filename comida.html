@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#a8672f">
+    <title>Comida · Miiaus Mágicos</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto+Condensed:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Compartidos primero; después los estilos propios -->
+    <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/nubes.css">
+    <link rel="stylesheet" href="css/comida.css">
+
+    <!-- Scripts clásicos, en el orden acordado -->
+    <script src="js/nubes.js" defer></script>
+    <script src="js/comun.js" defer></script>
+    <script src="js/comida.js" defer></script>
+    <link rel="stylesheet" href="css/musica.css">
+</head>
+<body>
+    <main class="canvas canvas--comida" id="canvas">
+
+        <!-- MÚSICA DE FONDO -->
+<audio
+    id="backgroundMusic"
+    src="audio/musica-fondo.mp3"
+    loop
+    preload="auto"
+></audio>
+
+<button
+    type="button"
+    id="musicButton"
+    class="music-button"
+    aria-label="Activar música"
+    aria-pressed="false"
+>
+    <span id="musicIcon" aria-hidden="true">♫</span>
+</button>
+
+        <div class="star-counter" id="starCounter" aria-label="Estrellas acumuladas">
+            <span class="star-counter-icon" aria-hidden="true">★</span>
+            <span data-star-value>0</span>
+        </div>
+
+        <button class="back-button" id="backButton" type="button" aria-label="Volver a interacción">
+            <img src="img/icono-volver.png" alt="" draggable="false">
+            <span class="back-fallback" aria-hidden="true">‹</span>
+        </button>
+
+        <section class="hunger-panel" aria-label="Nivel de hambre de tu gato">
+            <h1 class="hunger-heading">
+                <img src="img/comida/fresa.png" alt="" draggable="false">
+                <span>Pancita</span>
+            </h1>
+
+            <div
+                class="hunger-track"
+                id="hungerTrack"
+                role="progressbar"
+                aria-label="Hambre"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="40"
+            >
+                <div class="hunger-fill" id="hungerFill"></div>
+                <span class="hunger-mark hunger-mark--25" aria-hidden="true"></span>
+                <span class="hunger-mark hunger-mark--50" aria-hidden="true"></span>
+                <span class="hunger-mark hunger-mark--75" aria-hidden="true"></span>
+            </div>
+
+            <p class="hunger-legend" id="hungerLegend" aria-live="polite">Todavía tengo un huequito</p>
+        </section>
+
+        <section class="cat-stage" id="catStage" aria-label="Tu gato">
+            <div class="thought-bubble" id="thoughtBubble" aria-hidden="true">
+                <img id="favoriteFoodImage" src="img/comida/fresa.png" alt="" draggable="false">
+            </div>
+            <div class="reject-bubble" id="rejectBubble" role="status" aria-live="polite">
+                ¡Ya no me cabe!
+            </div>
+
+            <button class="cat-button" id="catButton" type="button" aria-label="Tocar a tu gato">
+                <img class="cat-image" id="catImage" src="img/gato-hada.png" alt="Tu gato" draggable="false">
+            </button>
+        </section>
+
+        <section class="food-tray" aria-label="Comidas para tu gato">
+            <div class="food-grid" id="foodGrid">
+                <!-- Las seis comidas se generan desde Comun.COMIDAS -->
+            </div>
+        </section>
+
+        <div class="visually-hidden" id="foodAnnouncement" aria-live="polite" aria-atomic="true"></div>
+    </main>
+
+   <audio
+    id="backgroundMusic"
+    src="audio/musica-fondo.mp3"
+    loop
+    preload="auto">
+</audio>
+
+<script src="js/musica.js"></script>
+
+</body>
+</html>

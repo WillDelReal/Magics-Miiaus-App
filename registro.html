@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Configuración mobile-first -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#71346f">
+
+    <meta name="description"
+        content="Regístrate y elige tu compañero mágico.">
+
+    <title>Registro | Mi Mundo Mágico</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="./css/registro.css">
+    <!-- JavaScript -->
+    <script src="js/registro.js" defer></script>
+     <link rel="stylesheet" href="css/musica.css">
+</head>
+
+<body>
+
+    <main class="app-container">
+
+        <!-- ESCENA PRINCIPAL -->
+        <section class="scene" aria-label="Registro de usuario">
+
+            <!-- LIENZO CON FONDO PROPORCIONAL -->
+            <div class="canvas">
+
+                <!-- Selector de gatos -->
+                <fieldset class="cat-selection" id="catSelection">
+
+                    <legend class="visually-hidden">
+                        Selecciona tu gato mágico
+                    </legend>
+
+                    <div class="cat-grid">
+
+                        <!-- GATO HADA -->
+                        <div class="cat-option">
+
+                            <input
+                                type="radio"
+                                name="gato"
+                                id="gato-hada"
+                                value="hada"
+                            >
+
+                            <label for="gato-hada" class="cat-label">
+
+                                <span class="cat-image-container">
+                                    <img
+                                        src="img/gato-hada.png"
+                                        alt=""
+                                        class="cat-image"
+                                        draggable="false"
+                                    >
+                                </span>
+
+                                <span class="cat-name name-pink">
+                                    Gato Hada
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- GATO MAGO -->
+                        <div class="cat-option">
+
+                            <input
+                                type="radio"
+                                name="gato"
+                                id="gato-mago"
+                                value="mago"
+                            >
+
+                            <label for="gato-mago" class="cat-label">
+
+                                <span class="cat-image-container">
+                                    <img
+                                        src="img/gato-mago.png"
+                                        alt=""
+                                        class="cat-image"
+                                        draggable="false"
+                                    >
+                                </span>
+
+                                <span class="cat-name name-blue">
+                                    Gato Hechicero
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- GATO ELFO -->
+                        <div class="cat-option">
+
+                            <input
+                                type="radio"
+                                name="gato"
+                                id="gato-elfo"
+                                value="elfo"
+                            >
+
+                            <label for="gato-elfo" class="cat-label">
+
+                                <span class="cat-image-container">
+                                    <img
+                                        src="img/gato-elfo.png"
+                                        alt=""
+                                        class="cat-image"
+                                        draggable="false"
+                                    >
+                                </span>
+
+                                <span class="cat-name name-green">
+                                    Gato Elfo
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- GATO DEL BOSQUE -->
+                        <div class="cat-option">
+
+                            <input
+                                type="radio"
+                                name="gato"
+                                id="gato-bosque"
+                                value="bosque"
+                            >
+
+                            <label for="gato-bosque" class="cat-label">
+
+                                <span class="cat-image-container">
+                                    <img
+                                        src="img/gato-bosque.png"
+                                        alt=""
+                                        class="cat-image"
+                                        draggable="false"
+                                    >
+                                </span>
+
+                                <span class="cat-name name-green">
+                                    Gato E. del Bosque
+                                </span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- GATO SORPRESA -->
+                        <div class="cat-option">
+
+                            <input
+                                type="radio"
+                                name="gato"
+                                id="gato-sorpresa"
+                                value="sorpresa"
+                            >
+
+                            <label for="gato-sorpresa" class="cat-label">
+
+                                <span class="cat-image-container">
+                                    <img
+                                        src="img/gato-sorpresa.png"
+                                        alt=""
+                                        class="cat-image"
+                                        draggable="false"
+                                    >
+                                </span>
+
+                                <span class="cat-name name-pink">
+                                    Gato Sorpresa
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+
+                <!-- FORMULARIO -->
+                <form class="register-form"
+                    id="registerForm"
+                    novalidate>
+
+                    <!-- NOMBRE -->
+                    <div class="form-group" id="nameGroup">
+
+                        <label for="nombre">
+                            Nombre:
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            placeholder=" "
+                            autocomplete="given-name"
+                            maxlength="50"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CORREO -->
+                    <div class="form-group" id="emailGroup">
+
+                        <label for="correo">
+                            Correo electrónico:
+                        </label>
+
+                        <input
+                            type="email"
+                            id="correo"
+                            name="correo"
+                            placeholder=" "
+                            autocomplete="email"
+                            inputmode="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- TELÉFONO -->
+                    <div class="form-group" id="phoneGroup">
+
+                        <label for="telefono">
+                            Teléfono:
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono"
+                            placeholder=" "
+                            autocomplete="tel"
+                            inputmode="tel"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- MENSAJE DE VALIDACIÓN -->
+                    <p class="error-message"
+                        id="errorMessage"
+                        aria-live="polite"
+                        role="status">
+                    </p>
+
+
+                    <!-- BOTÓN COMENZAR -->
+                    <button
+                        type="submit"
+                        class="start-button"
+                        id="startButton">
+
+                        <span class="button-text">
+                            Comenzar!
+                        </span>
+
+                        <span class="loading-star" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 1.5L14.8 9.2L22.5 12L14.8 14.8L12 22.5L9.2 14.8L1.5 12L9.2 9.2Z"/>
+                            </svg>
+                        </span>
+
+                    </button>
+
+                </form>
+
+
+                <!-- TEXTO INFERIOR -->
+                <p class="bottom-text">
+
+                    Selecciona tu miau mágico e ingresa tus datos
+                    para que puedas comenzar a vivir esta
+                    maravillosa experiencia
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTENEDOR DE PARTÍCULAS -->
+        <div id="particleLayer"
+            class="particle-layer"
+            aria-hidden="true">
+        </div>
+
+
+        <!-- CAPA FINAL DE TRANSICIÓN -->
+        <div id="transitionLayer"
+            class="transition-layer"
+            aria-hidden="true">
+        </div>
+
+    </main>
+
+<!-- MÚSICA DE FONDO -->
+<audio
+    id="backgroundMusic"
+    src="audio/musica-fondo.mp3"
+    loop
+    preload="auto"
+></audio>
+
+<button
+    type="button"
+    id="musicButton"
+    class="music-button"
+    aria-label="Activar música"
+    aria-pressed="false"
+>
+    <span id="musicIcon" aria-hidden="true">♫</span>
+</button>
+
+<script src="js/musica.js"></script>
+
+</body>
+</html>

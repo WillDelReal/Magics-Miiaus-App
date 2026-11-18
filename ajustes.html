@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-visual">
+    <meta name="theme-color" content="#a8672f">
+    <title>Ajustes</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos (comun.css siempre antes que ajustes.css) -->
+    <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/ajustes.css">
+    <link rel="stylesheet" href="css/musica.css">
+    <link rel="stylesheet" href="css/nubes.css">
+
+    <!-- Scripts (el orden importa) -->
+    <script src="js/nubes.js" defer></script>
+    <script src="js/comun.js" defer></script>
+    <script src="js/musica.js" defer></script>
+    <script src="js/ajustes.js" defer></script>
+</head>
+
+<body>
+
+<main class="canvas" id="canvas">
+
+    <!-- Botón volver (lo conecta Comun.iniciarBotonVolver) -->
+    <button class="back-button" id="backButton" type="button" aria-label="Volver">
+        <img src="img/icono-volver.png" alt="" draggable="false"
+             onerror="this.parentNode.textContent='‹'">
+    </button>
+
+    <!-- PANEL -->
+    <section class="panel" aria-labelledby="panelTitle">
+
+        <h1 class="panel-title" id="panelTitle">Ajustes</h1>
+
+        <ul class="settings-list" id="settingsList">
+
+            <!-- 1. SONIDO -->
+            <li class="setting-row">
+                <div class="setting-text">
+                    <h2 class="setting-title" id="t-sonido">Sonido</h2>
+                    <p class="setting-desc">Activa o silencia la música y los efectos</p>
+                </div>
+                <button type="button" class="switch" role="switch" aria-checked="true"
+                        aria-labelledby="t-sonido"
+                        data-ajuste="ajusteSonido" data-on="true" data-off="false" data-defecto="true">
+                    <span class="switch__knob"></span>
+                </button>
+            </li>
+
+            <!-- ➜ MÚSICA: aquí se muestra lo que genere musica.js (si lo dejas vacío, se oculta solo) -->
+            <li class="setting-row setting-row--stack" id="musicaSlot"></li>
+
+            <!-- 2. VIBRACIÓN -->
+            <li class="setting-row">
+                <div class="setting-text">
+                    <h2 class="setting-title" id="t-vibracion">Vibración</h2>
+                    <p class="setting-desc">Tu celular vibra cuando juegas con tu gato</p>
+                </div>
+                <button type="button" class="switch" role="switch" aria-checked="true"
+                        aria-labelledby="t-vibracion"
+                        data-ajuste="ajusteVibracion" data-on="true" data-off="false" data-defecto="true">
+                    <span class="switch__knob"></span>
+                </button>
+            </li>
+
+            <!-- 3. ANIMACIONES SUAVES -->
+            <li class="setting-row">
+                <div class="setting-text">
+                    <h2 class="setting-title" id="t-movimiento">Animaciones suaves</h2>
+                    <p class="setting-desc">Reduce los movimientos y las partículas</p>
+                </div>
+                <button type="button" class="switch" role="switch" aria-checked="false"
+                        aria-labelledby="t-movimiento"
+                        data-ajuste="ajusteMovimiento" data-on="reducido" data-off="auto" data-defecto="auto">
+                    <span class="switch__knob"></span>
+                </button>
+            </li>
+
+            <!-- 4. NOMBRE DE MI GATO -->
+            <li class="setting-row setting-row--stack">
+                <div class="setting-text">
+                    <h2 class="setting-title" id="t-nombre">Nombre de mi gato</h2>
+                    <p class="setting-desc">Entre 2 y 20 letras, números o espacios</p>
+                </div>
+
+                <form class="name-form" id="nameForm" novalidate>
+                    <label for="catName" class="visually-hidden">Nombre de tu gato</label>
+                    <input type="text" id="catName" name="catName"
+                           maxlength="20" autocomplete="off" autocapitalize="words"
+                           enterkeyhint="done" spellcheck="false" placeholder="Ponle un nombre">
+                    <button type="submit" class="btn-save">Guardar</button>
+                </form>
+
+                <p class="field-msg" id="nameMsg" aria-live="polite"></p>
+            </li>
+
+            <!-- 5. MI GATO -->
+            <li class="setting-row setting-row--stack">
+                <div class="setting-text">
+                    <h2 class="setting-title" id="t-gato">Mi gato</h2>
+                    <p class="setting-desc">Elige quién te acompaña</p>
+                </div>
+
+                <!-- Las 5 opciones las crea ajustes.js -->
+                <div class="cat-picker" id="catPicker" role="radiogroup" aria-labelledby="t-gato"></div>
+            </li>
+
+            <!-- 6. EMPEZAR DE NUEVO -->
+            <li class="setting-row setting-row--stack">
+                <div class="setting-text">
+                    <h2 class="setting-title">Empezar de nuevo</h2>
+                    <p class="setting-desc">Borra tu progreso y vuelve al inicio</p>
+                </div>
+                <button type="button" class="btn-danger" id="resetButton">
+                    <span aria-hidden="true">⚠️</span> Empezar de nuevo
+                </button>
+            </li>
+
+        </ul>
+
+        <!-- 7. PIE -->
+        <p class="panel-footer">Versión 1.0</p>
+
+    </section>
+
+    <!-- DIÁLOGO DE CONFIRMACIÓN (nativo) -->
+    <dialog class="confirm-dialog" id="resetDialog" aria-labelledby="resetTitle" aria-describedby="resetText">
+        <h2 class="confirm-title" id="resetTitle">¿Seguro?</h2>
+        <p class="confirm-text" id="resetText">
+            Se borrarán tu gato, tu nombre, tus estrellas y el hambre. No se puede deshacer.
+        </p>
+        <div class="confirm-actions">
+            <button type="button" class="btn-soft" id="cancelReset" autofocus>Cancelar</button>
+            <button type="button" class="btn-danger" id="confirmReset">Sí, empezar de nuevo</button>
+        </div>
+    </dialog>
+
+</main>
+
+<!-- MÚSICA DE FONDO -->
+<audio
+    id="backgroundMusic"
+    src="audio/musica-fondo.mp3"
+    loop
+    preload="auto"
+></audio>
+
+<button
+    type="button"
+    id="musicButton"
+    class="music-button"
+    aria-label="Activar música"
+    aria-pressed="false"
+>
+    <span id="musicIcon" aria-hidden="true">♫</span>
+</button>
+
+</body>
+</html>

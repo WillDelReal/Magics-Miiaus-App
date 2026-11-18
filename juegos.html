@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-visual">
+    <meta name="theme-color" content="#a8672f">
+    <title>Juegos</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Estilos (comun.css siempre antes que juegos.css) -->
+    <link rel="stylesheet" href="css/comun.css">
+    <link rel="stylesheet" href="css/juegos.css">
+    <link rel="stylesheet" href="css/nubes.css">
+
+    <!-- Scripts (el orden importa) -->
+    <script src="js/nubes.js" defer></script>
+    <script src="js/comun.js" defer></script>
+    <script src="js/juegos.js" defer></script>
+    <link rel="stylesheet" href="css/musica.css">
+</head>
+
+<body>
+
+<main class="canvas" id="canvas">
+
+    <!-- Contador de estrellas (lo rellena Comun.iniciarContadorEstrellas) -->
+    <div class="star-counter" id="starCounter" aria-label="Tus estrellas">
+        <span class="star-icon" aria-hidden="true">★</span>
+        <span class="star-value" id="starValue">0</span>
+    </div>
+
+    <!-- Botón volver (el JS decide a dónde va según la vista) -->
+    <button class="back-button" id="backButton" type="button" aria-label="Volver">
+        <img src="img/icono-volver.png" alt="" draggable="false"
+             onerror="this.parentNode.textContent='‹'">
+    </button>
+
+    <!-- VISTA 1: MENÚ -->
+    <section class="view view-menu is-entering" id="viewMenu" aria-labelledby="menuTitle">
+        <h1 class="screen-title" id="menuTitle">Juegos</h1>
+        <ul class="game-grid" id="gameGrid"></ul>
+    </section>
+
+    <!-- VISTA 2: JUEGO (Memoria de gatitos) -->
+    <section class="view view-game" id="viewGame" hidden aria-hidden="true" aria-labelledby="gameTitle">
+        <h2 class="visually-hidden" id="gameTitle">Memoria de gatitos</h2>
+
+        <div class="game-bar">
+            <p class="stat">Movimientos: <strong id="movesValue">0</strong></p>
+            <p class="stat">⏱ <strong id="timeValue">0:00</strong></p>
+        </div>
+        <p class="best-score" id="bestScore">Mejor: —</p>
+
+        <div class="memory-grid" id="memoryGrid" role="group" aria-label="Cartas de memoria"></div>
+    </section>
+
+    <!-- PANEL DE VICTORIA -->
+    <div class="win-overlay" id="winOverlay" hidden>
+        <div class="win-panel" id="winPanel" role="dialog" aria-modal="true" aria-labelledby="winTitle" tabindex="-1">
+            <h2 class="win-title" id="winTitle">¡Lo lograste!</h2>
+
+            <p class="win-stats">
+                <span>Movimientos: <strong id="winMoves">0</strong></span>
+                <span>Tiempo: <strong id="winTime">0:00</strong></span>
+            </p>
+
+            <p class="win-stars" id="winStars" aria-label="Estrellas ganadas">
+                <span class="win-star" aria-hidden="true">★</span>
+                <span class="win-star" aria-hidden="true">★</span>
+                <span class="win-star" aria-hidden="true">★</span>
+            </p>
+
+            <p class="win-record" id="winRecord" hidden>¡Nuevo récord! 🏆</p>
+
+            <div class="win-actions">
+                <button type="button" id="againButton">Jugar otra vez</button>
+                <button type="button" id="menuButton" class="btn-secondary">Volver a juegos</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anuncios para lectores de pantalla -->
+    <p class="visually-hidden" id="liveRegion" aria-live="polite"></p>
+
+</main>
+    <!-- MÚSICA -->
+    <audio
+        id="backgroundMusic"
+        src="audio/musica-fondo.mp3"
+        loop
+        preload="auto">
+    </audio>
+    <script src="js/musica.js"></script>
+</body>
+</html>

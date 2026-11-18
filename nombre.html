@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-visual"
+    >
+
+    <meta name="theme-color" content="#e8b45a">
+
+    <title>Hola, pequeño amigo</title>
+
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto+Condensed:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/nombre.css"> 
+    <link rel="stylesheet" href="css/nubes.css">
+
+    <!-- JavaScript -->
+    <script src="js/nubes.js" defer></script>
+    <script src="js/nombre.js" defer></script>
+</head>
+
+<body>
+
+    <main class="canvas" id="canvas">
+
+        <!-- Partículas decorativas -->
+        <div
+            class="particles-container"
+            id="particlesContainer"
+            aria-hidden="true"
+        ></div>
+
+        <!-- BLOQUE PRINCIPAL -->
+        <section class="content-block" aria-label="Presentación de tu gato">
+
+            <h1 class="title" id="title" aria-label="HOLA">
+                <span>H</span>
+                <span>O</span>
+                <span>L</span>
+                <span>A</span>
+            </h1>
+
+            <div class="message-pill">
+                Este es tu amigo, ¿Qué nombre te gustaría darle?
+            </div>
+
+            <!-- FORMULARIO -->
+            <form class="name-form" id="nameForm" novalidate>
+
+                <label for="catName" class="visually-hidden">
+                    Nombre de tu gato
+                </label>
+
+                <input
+                    type="text"
+                    id="catName"
+                    name="catName"
+                    placeholder="Asígnale un nombre..."
+                    maxlength="20"
+                    autocomplete="off"
+                    autocapitalize="words"
+                    enterkeyhint="send"
+                    spellcheck="false"
+                    required
+                >
+
+                <!-- Mensaje de error y botón -->
+                <div class="form-actions">
+
+                    <p
+                        class="error-message"
+                        id="errorMessage"
+                        aria-live="polite"
+                    ></p>
+
+                    <button
+                        type="submit"
+                        class="send-button"
+                        id="sendButton"
+                    >
+                        Enviar &gt;
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- GATO -->
+        <div
+            class="cat-container"
+            id="catContainer"
+            role="button"
+            tabindex="0"
+            aria-label="Tu gato. Tócalo para hacerlo saltar"
+        >
+
+            <span
+                class="surprise-question"
+                id="surpriseQuestion"
+                aria-hidden="true"
+            >?</span>
+
+            <img
+                src="img/gato-hada.png"
+                alt="Tu gato hada"
+                class="cat-image"
+                id="catImage"
+                draggable="false"
+            >
+
+        </div>
+
+    </main>
+
+<!-- MÚSICA DE FONDO -->
+<audio
+    id="backgroundMusic"
+    src="audio/musica-fondo.mp3"
+    loop
+    preload="auto"
+></audio>
+
+<button
+    type="button"
+    id="musicButton"
+    class="music-button"
+    aria-label="Activar música"
+    aria-pressed="false"
+>
+    <span id="musicIcon" aria-hidden="true">♫</span>
+</button>
+
+</body>
+</html>
